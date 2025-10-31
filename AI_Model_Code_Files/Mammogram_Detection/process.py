@@ -8,8 +8,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.utils import to_categorical
 
 # Absolute paths
-h5_path = 'C:/Users/Kamog/OneDrive/Desktop/AI-mini-project/Cancer_Dataset_Files/all_mias_scans.h5'
-info_path = 'C:/Users/Kamog/OneDrive/Desktop/AI-mini-project/Cancer_Dataset_Files/Info.txt'
+h5_path = 'Cancer_Dataset_Files/all_mias_scans.h5'
+info_path = 'Cancer_Dataset_Files/Info.txt'
 
 print("Current working directory:", os.getcwd())
 print("Checking info_path existence:", os.path.exists(info_path))
