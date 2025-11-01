@@ -31,7 +31,7 @@ def build_model():
 
 # ----- Smoothed Adaptive Confusion Callback -----
 class AdaptiveConfusionCallback(tf.keras.callbacks.Callback):
-    def __init__(self, X_val, y_val, base_weights, max_adjust=0.02, alpha=0.2):
+    def __init__(self, X_val, y_val, base_weights, max_adjust=0.02, alpha=0.1):
         """
         max_adjust: max fractional change per epoch (smaller = smoother updates)
         alpha: smoothing factor for exponential moving average of class weights
@@ -94,7 +94,7 @@ class AdaptiveConfusionCallback(tf.keras.callbacks.Callback):
         print(f"→ Smoothed class weights for next epoch: {self.class_weights}\n")
 
 # ----- Training Function -----
-def train_model(model, X_train, X_val, y_train, y_val, epochs=10):
+def train_model(model, X_train, X_val, y_train, y_val, epochs=50):
     datagen = ImageDataGenerator(
         rotation_range=10,
         width_shift_range=0.05,
