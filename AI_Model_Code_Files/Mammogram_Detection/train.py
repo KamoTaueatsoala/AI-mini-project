@@ -31,7 +31,7 @@ def build_model():
 
 # ----- Smoothed Adaptive Confusion Callback -----
 class AdaptiveConfusionCallback(tf.keras.callbacks.Callback):
-    def __init__(self, X_val, y_val, base_weights, max_adjust=0.02, alpha=0.1):
+    def __init__(self, X_val, y_val, base_weights, max_adjust=0.02, alpha=0.2):
         """
         max_adjust: max fractional change per epoch (smaller = smoother updates)
         alpha: smoothing factor for exponential moving average of class weights
