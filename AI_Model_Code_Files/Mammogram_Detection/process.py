@@ -49,7 +49,7 @@ def load_images(df_labels, target_size=(224, 224)):
                 img = np.expand_dims(img, axis=-1)
                 images.append(img)
                 labels.append(df_labels['label'].iloc[i])
-                print(f"Loaded image {i} for ref {df_labels['ref'].iloc[i]}, shape {img.shape}")
+                #print(f"Loaded image {i} for ref {df_labels['ref'].iloc[i]}, shape {img.shape}")
     if not images:
         print("Warning: No images loaded. Check the HDF5 structure output above.")
     return np.array(images), np.array(labels)
@@ -58,7 +58,7 @@ def preprocess_data():
     df_labels = load_labels()
     print(f"Loaded {len(df_labels)} labels. Normals: {sum(df_labels['label'] == 0)}, Abnormals: {sum(df_labels['label'] == 1)}")
     X, y = load_images(df_labels)
-    print(f"Loaded {X.shape[0]} images with shape {X.shape[1:]}")
+    print(f"Loaded {X.shape[0]} images with shape {X.shape[1:]}\n")
     if X.shape[0] == 0:
         raise ValueError("No images loaded. Please check the HDF5 file structure.")
     y = to_categorical(y, num_classes=2)

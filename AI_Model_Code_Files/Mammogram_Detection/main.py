@@ -8,10 +8,16 @@ if __name__ == "__main__":
     # Processing
     X_train, X_test, y_train, y_test, datagen = preprocess_data()
 
-    # Training
+    # ----- Training -----
     model = build_model()
-    model, history = train_model(model, X_train, X_test, y_train, y_test, datagen)
+
+    # Unpack all returned values from train_model (model, history, adaptive_cb)
+    model, history = train_model(model, X_train, X_test, y_train, y_test)
+
+    # Save the trained model
     model.save('mammogram_detector.h5')
+
+    # Save training history
     np.save('training_history.npy', history.history)
 
     # Evaluation
